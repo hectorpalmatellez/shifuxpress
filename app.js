@@ -17,10 +17,7 @@ app.get('/', (req, res) => {
     };
     request(options, (er, rs, body) => {
         const parsedBody = JSON.parse(body);
-        const header = parsedBody.header;
-        const css = parsedBody.css;
-        const js = parsedBody.js;
-        const footer = parsedBody.footer;
+        const { header, css, js, footer} = parsedBody;
 
         res.render('index', {
             header: header,
