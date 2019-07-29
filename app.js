@@ -34,9 +34,9 @@ app.get('/preview', (req, res) => {
             'X-Client': ''
         }
     };
-   request(options, (er, rs, body) => {
-      res.send(body);
-   });
+    request(options, (er, rs, body) => {
+        res.send(body);
+    });
 });
 
 app.listen(3000, () => {});
