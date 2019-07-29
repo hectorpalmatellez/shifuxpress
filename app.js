@@ -27,4 +27,16 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/preview', (req, res) => {
+    const options = {
+        url: 'http://backoffice.despegar.com/shifu/preview?locale=es_AR',
+        headers: {
+            'X-Client': ''
+        }
+    };
+   request(options, (er, rs, body) => {
+      res.send(body);
+   });
+});
+
 app.listen(3000, () => {});
