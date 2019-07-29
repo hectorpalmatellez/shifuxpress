@@ -19,10 +19,10 @@ app.get('/', (req, res) => {
         const { header, css, js, footer} = parsedBody;
 
         res.render('index', {
-            header: header,
-            css: css,
-            js: js,
-            footer: footer
+            header,
+            css,
+            js,
+            footer
         });
     });
 });
