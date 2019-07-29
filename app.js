@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
-const ejs = require('ejs');
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -26,9 +25,6 @@ app.get('/', (req, res) => {
             footer: footer
         });
     });
-
 });
 
-app.listen(3000, () => {
-    console.log('Example app listening on port 3000!');
-});
+app.listen(3000, () => {});
