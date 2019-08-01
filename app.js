@@ -2,7 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 const app = express();
+const cors = require('cors');
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.set('view engine', 'ejs');
@@ -39,4 +41,16 @@ app.get('/preview', (req, res) => {
     });
 });
 
-app.listen(3000, () => {});
+app.get('/api', (req, res) => {
+    const options = {
+        url: 'http://backoffice.despegar.com/shifu/?locale=es_AR',
+        headers: {
+            'X-Client': ''
+        }
+    };
+    request(options, (er, rs, body) => {
+        res.json(JSON.parse(body));
+    });
+});
+
+app.listen(4000, () => {});
